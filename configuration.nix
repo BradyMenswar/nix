@@ -96,8 +96,8 @@
 	specialArgs = { inherit inputs; };
 	users = {
 	  "brady" = import ./home.nix;
-	}
-  }
+	};
+  };
 
   # Install firefox.
   programs.firefox.enable = true;
