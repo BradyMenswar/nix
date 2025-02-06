@@ -53,7 +53,7 @@
     modesetting.enable = true;
     open = true;
     nvidiaSettings = true;
-    package = config.boot.kernalPackages.nvidiaPackages.production;
+    package = config.boot.kernelPackages.nvidiaPackages.production;
   };
 
   # Enable the KDE Plasma Desktop Environment.
