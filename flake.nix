@@ -7,12 +7,17 @@
 	home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { nixpkgs, ... } @ inputs: 
+  outputs = { nixpkgs, home-manager, ... } @ inputs: 
   {
 	nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
 		specialArgs = { inherit inputs; };
 		modules = [
 			./configuration.nix
+			home-manager.nixosModules.home-manager {
+				home-manager.useGlobalPkgs = true;
+				home-manager.useUserPackages = true;
+				home-manager.users.brady = import ./home.nix;
+			}
 		];
 	};
   };

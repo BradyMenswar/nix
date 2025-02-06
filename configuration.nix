@@ -46,11 +46,21 @@
 
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
-  services.xserver.enable = false;
+  services.xserver.enable = true;
+  services.xserver.videoDrivers = ["nvidia"];
+
+  hardware.nvidia = {
+    modesetting.enable = true;
+    open = true;
+    nvidiaSettings = true;
+    package = config.boot.kernalPackages.nvidiaPackages.production;
+  }
 
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
+  services.displayManager.defaultSession = "plasma";
+
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -85,12 +95,17 @@
     isNormalUser = true;
     description = "Brady Menswar";
     extraGroups = [ "networkmanager" "wheel" ];
+    shell = pkgs.zsh;
     packages = with pkgs; [
       kdePackages.kate
     #  thunderbird
     ];
   };
+  
+  environment.variables.EDITOR = "nvim";
 
+  programs.zsh.enable = true;
+  users.defaultUserShell = pkgs.zsh;
   # Install firefox.
   programs.firefox.enable = true;
 
@@ -102,6 +117,11 @@
   environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
+	neovim
+	git
+	wezterm
+	zsh
+	discord
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
