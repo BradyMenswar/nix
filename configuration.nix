@@ -54,7 +54,7 @@
     open = true;
     nvidiaSettings = true;
     package = config.boot.kernalPackages.nvidiaPackages.production;
-  }
+  };
 
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
