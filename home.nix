@@ -39,7 +39,7 @@
   # plain files is through 'home.file'.
   home.file = {
     ".config/nvim" = {
-        source = config.lib.file.mkOutOfStoreSymlink ./dotfiles/nvim;
+        source = ./dotfiles/nvim;
         recursive = true;
     };
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
