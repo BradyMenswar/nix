@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   home.username = "brady";
@@ -20,11 +20,26 @@
   programs.kitty.enable = true; # required for the default Hyprland config
   wayland.windowManager.hyprland = {
 	  enable = true;
+	  package = inputs.hyprland.packages."${pkgs.system}".hyprland;
+	  plugins = [
+		inputs.hyprland-plugins.packages."${pkgs.system}".borders-plus-plus
+		inputs.hyprland-plugins.packages."${pkgs.system}".hyprbars
+	  ];
 	  settings = {
 		"$mod" = "SUPER";
 		bind = [
 			"$mod, F, exec, firefox"
 			"$mod, S, exec, kitty"
+			"$mod, D, exec, discord"
+			"$mod, H, movefocus, l"
+			"$mod, J, movefocus, d"
+			"$mod, K, movefocus, u"
+			"$mod, L, movefocus, r"
+			"$mod, Q, killactive"
+			"SUPER_SHIFT, H, movewindow, l"
+			"SUPER_SHIFT, J, movewindow, d"
+			"SUPER_SHIFT, K, movewindow, u"
+			"SUPER_SHIFT, L, movewindow, r"
 		];
 	  };
   };

@@ -4,6 +4,11 @@
   inputs = {
     # Specify the source of Home Manager and Nixpkgs.
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+	hyprland.url = "github:hyprwm/Hyprland";
+	hyprland-plugins = {
+		url = "github:hyprwm/hyprland-plugins";
+		inputs.hyprland.follows = "hyprland";
+	};
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -23,6 +28,7 @@
         modules = [ ./home.nix ];
 
         # Optionally use extraSpecialArgs
+		extraSpecialArgs = { inherit inputs;};
         # to pass through arguments to home.nix
       };
 	nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
