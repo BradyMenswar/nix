@@ -91,17 +91,13 @@
     isNormalUser = true;
     description = "Brady Menswar";
     extraGroups = [ "networkmanager" "wheel" ];
-    shell = pkgs.zsh;
     packages = with pkgs; [
       kdePackages.kate
     #  thunderbird
     ];
   };
   
-  environment.variables.EDITOR = "nvim";
 
-  programs.zsh.enable = true;
-  users.defaultUserShell = pkgs.zsh;
   # Install firefox.
   programs.firefox.enable = true;
 
@@ -113,10 +109,8 @@
   environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
-	neovim
 	git
 	wezterm
-	zsh
 	discord
   ];
 
