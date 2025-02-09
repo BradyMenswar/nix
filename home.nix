@@ -24,6 +24,7 @@
 		"$mod" = "SUPER";
 		bind = [
 			"$mod, F, exec, firefox"
+			"$mod, S, exec, kitty"
 		];
 	  };
   };
@@ -45,14 +46,31 @@
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
 
+	completionInit = ''
+		zoxide init --cmd cd zsh
+		starship init zsh
+	'';
+
     shellAliases = {
-		update = "sudo nixos-rebuild switch";
+		update = "sudo nixos-rebuild switch --flake .";
+		home-update = "sudo home-manager switch --flake .";
     };
+
     oh-my-zsh = {
 		enable = true;
 		plugins = [ "git" ];
 		theme = "robbyrussell";
     };
+  };
+
+  programs.starship = {
+	enable = true;
+	enableZshIntegration = true;
+  };
+
+  programs.zoxide = {
+	enable = true;
+	enableZshIntegration = true;
   };
   # ------------------------------------------------------------------
 

@@ -42,7 +42,7 @@
   # You can disable this if you're only using the Wayland session.
   services.xserver.enable = true;
   services.xserver.videoDrivers = ["nvidia"];
-
+	
   hardware.nvidia = {
     modesetting.enable = true;
     open = true;
@@ -56,7 +56,8 @@
   # services.displayManager.defaultSession = "plasma";
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
-
+  services.xserver.displayManager.gdm.wayland = true;
+  programs.hyprland.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -91,6 +92,8 @@
     isNormalUser = true;
     description = "Brady Menswar";
     extraGroups = [ "networkmanager" "wheel" ];
+    shell = pkgs.zsh;
+    ignoreShellProgramCheck = true;
     packages = with pkgs; [
       kdePackages.kate
     #  thunderbird
