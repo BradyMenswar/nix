@@ -13,9 +13,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+	nvf.url = "github:notashelf/nvf";
   };
 
-  outputs = { nixpkgs, home-manager, ... } @inputs:
+  outputs = { nixpkgs, home-manager, nvf, ... } @inputs:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -25,7 +26,10 @@
 
         # Specify your home configuration modules here, for example,
         # the path to your home.nix.
-        modules = [ ./home.nix ];
+        modules = [ 
+			./home.nix
+			nvf.homeManagerModules.default
+		 ];
 
         # Optionally use extraSpecialArgs
 		extraSpecialArgs = { inherit inputs;};
