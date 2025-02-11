@@ -272,8 +272,8 @@
     '';
 
     shellAliases = {
-      update = "sudo nixos-rebuild switch --flake .";
-      home-update = "sudo home-manager switch --flake .";
+      rebuild = "sudo nixos-rebuild switch --flake .";
+      rebuild-home = "home-manager switch --flake .";
     };
 
     oh-my-zsh = {
