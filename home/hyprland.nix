@@ -79,10 +79,10 @@
     enable = true;
     settings = {
       preload = [
-        "/home/brady/Pictures/Apartment Bedroom Office.jpg"
+        "./wallpapers/wallpaper.jpg"
       ];
       wallpaper = [
-        ", /home/brady/Pictures/Apartment Bedroom Office.jpg"
+        ", ./wallpapers/wallpaper.jpg"
       ];
     };
   };

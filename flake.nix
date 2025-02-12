@@ -14,13 +14,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nvf.url = "github:notashelf/nvf";
-    nix-colors.url = "github:misterio77/nix-colors";
+    stylix.url = "github:danth/stylix";
   };
 
   outputs = {
     nixpkgs,
     home-manager,
     nvf,
+    stylix,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -29,16 +30,13 @@
     homeConfigurations."brady" = home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
 
-      # Specify your home configuration modules here, for example,
-      # the path to your home.nix.
       modules = [
         ./home.nix
         nvf.homeManagerModules.default
+        stylix.homeManagerModules.stylix
       ];
 
-      # Optionally use extraSpecialArgs
       extraSpecialArgs = {inherit inputs;};
-      # to pass through arguments to home.nix
     };
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};

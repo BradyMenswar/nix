@@ -1,10 +1,9 @@
-{inputs, ...}: {
+{pkgs, ...}: {
   home.username = "brady";
   home.homeDirectory = "/home/brady";
   home.stateVersion = "24.11";
 
   imports = [
-    inputs.nix-colors.homeManagerModules.default
     ./home/zsh.nix
     ./home/neovim.nix
     ./home/starship.nix
@@ -12,7 +11,12 @@
     ./home/hyprland.nix
   ];
 
-  colorScheme = inputs.nix-colors.colorSchemes.dracula;
+  stylix = {
+    enable = true;
+    image = ./home/wallpapers/wallpaper.jpg;
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-storm.yaml";
+    polarity = "dark";
+  };
 
   home.sessionVariables = {
     NIXOS_OZONE_WL = "1";
