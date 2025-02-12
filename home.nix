@@ -34,6 +34,7 @@
     settings = {
       exec-once = [
         "waybar"
+        "hyprpaper"
       ];
 
       "$mod" = "SUPER";
@@ -92,7 +93,17 @@
       };
     };
   };
-
+  services.hyprpaper = {
+    enable = true;
+    settings = {
+      preload = [
+        "/home/brady/Pictures/Apartment Bedroom Office.jpg"
+      ];
+      wallpaper = [
+        ", /home/brady/Pictures/Apartment Bedroom Office.jpg"
+      ];
+    };
+  };
   home.sessionVariables.NIXOS_OZONE_WL = "1";
   # ------------------------------------------------------------------
 
