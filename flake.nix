@@ -14,6 +14,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nvf.url = "github:notashelf/nvf";
+    nix-colors.url = "github:misterio77/nix-colors";
   };
 
   outputs = {

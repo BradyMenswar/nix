@@ -8,6 +8,11 @@
 
   home.stateVersion = "24.11"; # Please read the comment before changing.
 
+  imports = [
+    inputs.nix-colors.homeManagerModules.default
+  ];
+  # colorScheme = inputs.nix-colors.colorSchemes.gruv-dark-medium;
+
   # home.packages = with pkgs; [
   #
   # ];
@@ -20,7 +25,10 @@
   # };
 
   # Hyprland Setup ---------------------------------------------------
-  programs.kitty.enable = true; # required for the default Hyprland config
+  programs.kitty = {
+    enable = true; # required for the default Hyprland config
+    themeFile = "tokyo_night_storm";
+  };
   programs.wofi.enable = true;
   programs.waybar = {
     enable = true;
