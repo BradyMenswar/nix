@@ -4,9 +4,6 @@
   ...
 }: {
   programs.wofi.enable = true;
-  programs.waybar = {
-    enable = true;
-  };
   wayland.windowManager.hyprland = {
     enable = true;
     package = inputs.hyprland.packages."${pkgs.system}".hyprland;
@@ -15,7 +12,6 @@
     ];
     settings = {
       exec-once = [
-        "waybar"
         "hyprpaper"
       ];
 

@@ -1,9 +1,14 @@
-{pkgs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   home.username = "brady";
   home.homeDirectory = "/home/brady";
   home.stateVersion = "24.11";
 
   imports = [
+    inputs.ags.homeManagerModules.default
     ./home/zsh.nix
     ./home/neovim.nix
     ./home/starship.nix
@@ -37,6 +42,14 @@
         name = "Noto Color Emoji";
       };
     };
+  };
+
+  programs.ags = {
+    enable = true;
+    configDir = ./home/ags;
+    extraPackages = [
+      inputs.ags.packages.${pkgs.system}.battery
+    ];
   };
 
   home.sessionVariables = {
