@@ -39,7 +39,13 @@
           enableTreesitter = true;
           enableFormat = true;
           nix.enable = true;
+          ts.enable = true;
+          tailwind.enable = true;
+          css.enable = true;
+          rust.enable = true;
+          lua.enable = true;
         };
+
         lsp = {
           enable = true;
           formatOnSave = true;
