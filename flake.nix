@@ -15,7 +15,6 @@
     };
     nvf.url = "github:notashelf/nvf";
     stylix.url = "github:danth/stylix";
-    ags.url = "github:aylur/ags";
   };
 
   outputs = {
@@ -43,6 +42,14 @@
       specialArgs = {inherit inputs;};
       modules = [
         ./configuration.nix
+      ];
+    };
+    devShells.${system}.default = pkgs.mkShell {
+      packages = [
+        pkgs.cargo
+        pkgs.nodejs
+        pkgs.pkg-config
+        pkgs.gtk4
       ];
     };
   };

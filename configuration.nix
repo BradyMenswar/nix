@@ -114,6 +114,7 @@
     git
     discord
     google-chrome
+    gtk4
   ];
 
   programs.ssh.startAgent = true;
