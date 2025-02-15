@@ -18,8 +18,8 @@
 
   stylix = {
     enable = true;
-    image = ./home/wallpapers/wallpaper-everforest.jpg;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/everforest.yaml";
+    image = ./home/wallpapers/castle.jpg;
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
     polarity = "dark";
     opacity = {
       terminal = 0.9;
