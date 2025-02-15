@@ -18,7 +18,7 @@
 
   stylix = {
     enable = true;
-    image = ./home/wallpapers/wallpaper.jpg;
+    image = ./home/wallpapers/wallpaper-everforest.jpg;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/everforest.yaml";
     polarity = "dark";
     opacity = {
