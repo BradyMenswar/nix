@@ -76,10 +76,10 @@
     enable = true;
     settings = {
       preload = [
-        "./wallpapers/wallpaper.jpg"
+        "./wallpapers/wallpaper-everforest.jpg"
       ];
       wallpaper = [
-        ", ./wallpapers/wallpaper.jpg"
+        ", ./wallpapers/wallpaper-everforest.jpg"
       ];
     };
   };

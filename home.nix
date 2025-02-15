@@ -19,7 +19,7 @@
   stylix = {
     enable = true;
     image = ./home/wallpapers/wallpaper.jpg;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-storm.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/everforest.yaml";
     polarity = "dark";
     opacity = {
       terminal = 0.9;
@@ -58,6 +58,7 @@
 
   home.packages = with pkgs; [
     pciutils
+    gowall
   ];
 
   programs.home-manager.enable = true;
