@@ -13,7 +13,6 @@
     settings = {
       exec-once = [
         "hyprpaper"
-        "ags run"
       ];
 
       "$mod" = "SUPER";
