@@ -15,9 +15,6 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
       application={App}
     >
       <centerbox>
-        <button onClicked="echo hello" halign={Gtk.Align.CENTER}>
-          Testing AGS
-        </button>
         <box />
         <button onClicked={() => print("hello")} halign={Gtk.Align.END}>
           <label label={time()} />
