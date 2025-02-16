@@ -1,4 +1,8 @@
-{config, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   programs.neovim = {
     enable = true;
     defaultEditor = true;
@@ -31,8 +35,12 @@
 
         statusline.lualine.enable = true;
         telescope.enable = true;
-        autocomplete.nvim-cmp.enable = true;
         filetree.neo-tree.enable = true;
+        autocomplete.nvim-cmp = {
+          enable = true;
+          mappings.next = "<C-j>";
+          mappings.previous = "<C-k>";
+        };
 
         languages = {
           enableLSP = true;
@@ -53,6 +61,13 @@
         };
 
         globals.mapleader = " ";
+
+        extraPlugins = with pkgs.vimPlugins; {
+          nvim-surround = {
+            package = nvim-surround;
+            setup = "require('nvim-surround').setup {}";
+          };
+        };
 
         options = {
           wrap = false;
