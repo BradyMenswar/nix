@@ -45,11 +45,13 @@
       ];
     };
     devShells.${system}.default = pkgs.mkShell {
+      shell = pkgs.zsh;
+      shellHook = "exec zsh";
       packages = [
         pkgs.cargo
-        pkgs.nodejs
         pkgs.pkg-config
         pkgs.gtk4
+        pkgs.gtk4-layer-shell
       ];
     };
   };
