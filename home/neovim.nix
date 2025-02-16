@@ -105,14 +105,14 @@
           }
           {
             key = "<C-j>";
-            mode = ["n"];
+            mode = ["n" "v"];
             action = "<C-d>zz";
             silent = true;
             desc = "Move page down and center";
           }
           {
             key = "<C-k>";
-            mode = ["n"];
+            mode = ["n" "v"];
             action = "<C-u>zz";
             silent = true;
             desc = "Move page up and center";

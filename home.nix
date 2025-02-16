@@ -22,7 +22,20 @@
     pciutils
     gowall
     obsidian
+    wl-clipboard
+    hyprpicker
+    hyprshot
   ];
+
+  services.mako = {
+    enable = true;
+    borderRadius = 8;
+    padding = "16";
+  };
+
+  services.cliphist = {
+    enable = true;
+  };
 
   programs.home-manager.enable = true;
 }

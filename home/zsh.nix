@@ -12,7 +12,7 @@
 
     shellAliases = {
       rebuild = "sudo nixos-rebuild switch --flake .";
-      rebuild-home = "home-manager switch --flake .";
+      hs = "home-manager switch --flake .";
     };
 
     oh-my-zsh = {

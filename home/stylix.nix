@@ -22,10 +22,6 @@
       base0F = "#F7768E";
     };
     polarity = "dark";
-    opacity = {
-      terminal = 0.9;
-      desktop = 0.9;
-    };
     fonts = {
       monospace = {
         package = pkgs.nerd-fonts.jetbrains-mono;
