@@ -160,6 +160,42 @@
             desc = "Format code with null-ls";
           }
           {
+            key = "<leader>t";
+            mode = ["n"];
+            action = ":tabnew<CR>";
+            desc = "New tab";
+          }
+          {
+            key = "<leader>1";
+            mode = ["n"];
+            action = "1gt";
+            desc = "Switch to tab 1";
+          }
+          {
+            key = "<leader>2";
+            mode = ["n"];
+            action = "2gt";
+            desc = "Switch to tab 2";
+          }
+          {
+            key = "<leader>3";
+            mode = ["n"];
+            action = "3gt";
+            desc = "Switch to tab 3";
+          }
+          {
+            key = "<leader>4";
+            mode = ["n"];
+            action = "4gt";
+            desc = "Switch to tab 4";
+          }
+          {
+            key = "<leader>5";
+            mode = ["n"];
+            action = "5gt";
+            desc = "Switch to tab 5";
+          }
+          {
             key = "gd";
             mode = ["n"];
             action = "vim.lsp.buf.definition";

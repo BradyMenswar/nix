@@ -41,7 +41,7 @@
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};
       modules = [
-        ./configuration.nix
+        ./hosts/desktop/configuration.nix
       ];
     };
     devShells.${system}.default = pkgs.mkShell {
