@@ -119,6 +119,8 @@
 
   programs.ssh.startAgent = true;
 
+  networking.nameservers = ["1.1.1.1" "8.8.8.8"];
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
