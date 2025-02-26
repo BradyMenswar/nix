@@ -1,4 +1,9 @@
-{pkgs, ...}: {
+{
+  inputs,
+  pkgs,
+  system,
+  ...
+}: {
   home.username = "brady";
   home.homeDirectory = "/home/brady";
   home.stateVersion = "24.11";
@@ -25,8 +30,8 @@
     wl-clipboard
     hyprpicker
     hyprshot
+    inputs.zen-browser.packages."${system}".default
   ];
-
   services.mako = {
     enable = true;
     borderRadius = 8;

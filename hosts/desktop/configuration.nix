@@ -115,6 +115,9 @@
     discord
     google-chrome
     gtk4
+    python311
+    godot_4
+    blender
   ];
 
   programs.ssh.startAgent = true;

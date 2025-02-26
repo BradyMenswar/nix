@@ -15,6 +15,7 @@
     };
     nvf.url = "github:notashelf/nvf";
     stylix.url = "github:danth/stylix";
+    zen-browser.url = "github:0xc000022070/zen-browser-flake";
   };
 
   outputs = {
@@ -36,7 +37,10 @@
         stylix.homeManagerModules.stylix
       ];
 
-      extraSpecialArgs = {inherit inputs;};
+      extraSpecialArgs = {
+        inherit inputs;
+        inherit system;
+      };
     };
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};
