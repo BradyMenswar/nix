@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   stylix = {
     enable = true;
-    image = ./wallpapers/castle.jpg;
+    image = ./wallpapers/glacier.png;
     # base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-city-terminal-dark.yaml";
     base16Scheme = {
       base00 = "#171D23";

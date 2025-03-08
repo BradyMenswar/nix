@@ -31,6 +31,11 @@
     hyprpicker
     hyprshot
     inputs.zen-browser.packages."${system}".default
+    mangohud
+    protonup-qt
+    lutris
+    bottles
+    heroic
   ];
   services.mako = {
     enable = true;

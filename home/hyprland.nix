@@ -49,7 +49,7 @@
       };
 
       bind = [
-        "$mod, B, exec, firefox"
+        "$mod, B, exec, zen"
         "$mod, RETURN, exec, kitty"
         "$mod, D, exec, discord"
         "$mod, H, movefocus, l"
@@ -104,19 +104,19 @@
         fullscreen_opacity = 1.0;
 
         blur = {
-          enabled = true;
+          enabled = false;
           size = 12;
           passes = 4;
           new_optimizations = "on";
-          ignore_opacity = true;
-          xray = true;
+          ignore_opacity = false;
+          xray = false;
         };
 
-        shadow = {
-          enabled = false;
-          range = 30;
-          render_power = 3;
-        };
+        # shadow = {
+        #   enabled = false;
+        #   range = 30;
+        #   render_power = 3;
+        # };
         rounding_power = 4.0;
       };
 
