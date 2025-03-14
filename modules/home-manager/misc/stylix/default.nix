@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   stylix = {
     enable = true;
-    image = ./wallpapers/glacier.png;
+    image = ../../../../wallpapers/glacier.png;
     # base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-city-terminal-dark.yaml";
     base16Scheme = {
       base00 = "#171D23";
@@ -32,8 +32,8 @@
         name = "DejaVu Serif";
       };
       sansSerif = {
-        package = pkgs.dejavu_fonts;
-        name = "DejaVu Sans";
+        package = pkgs.roboto;
+        name = "Roboto";
       };
       emoji = {
         package = pkgs.noto-fonts-emoji;

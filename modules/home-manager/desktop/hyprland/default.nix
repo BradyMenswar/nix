@@ -135,10 +135,10 @@
     enable = true;
     settings = {
       preload = [
-        "./wallpapers/wallpaper-everforest.jpg"
+        "../../../../wallpapers/glacier.png"
       ];
       wallpaper = [
-        ", ./wallpapers/wallpaper-everforest.jpg"
+        ", ../../../../wallpapers/glacier.png"
       ];
     };
   };

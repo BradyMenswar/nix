@@ -33,9 +33,7 @@
     inputs.zen-browser.packages."${system}".default
     mangohud
     protonup-qt
-    lutris
-    bottles
-    heroic
+    inkscape
   ];
   services.mako = {
     enable = true;

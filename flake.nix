@@ -13,50 +13,84 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    darwin = {
+      url = "github:LnL7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nvf.url = "github:notashelf/nvf";
     stylix.url = "github:danth/stylix";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
   };
 
   outputs = {
+    self,
     nixpkgs,
     home-manager,
     nvf,
     stylix,
+    darwin,
     ...
   } @ inputs: let
-    system = "x86_64-linux";
-    pkgs = nixpkgs.legacyPackages.${system};
-  in {
-    homeConfigurations."brady" = home-manager.lib.homeManagerConfiguration {
-      inherit pkgs;
-
-      modules = [
-        ./home.nix
-        nvf.homeManagerModules.default
-        stylix.homeManagerModules.stylix
-      ];
-
-      extraSpecialArgs = {
-        inherit inputs;
-        inherit system;
+    inherit (self) outputs;
+    users = {
+      brady = {
+        email = "bradymenswar@gmail.com";
+        fullName = "Brady Menswar";
+        name = "brady";
       };
     };
-    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs;};
-      modules = [
-        ./hosts/desktop/configuration.nix
-      ];
+
+    mkNixosConfiguration = hostname: username:
+      nixpkgs.lib.nixosSystem {
+        specialArgs = {
+          inherit inputs outputs hostname;
+          userConfig = users.${username};
+          nixosModules = "${self}/modules/nixos";
+        };
+        modules = [./hosts/${hostname}];
+      };
+
+    mkDarwinConfiguration = hostname: username:
+      darwin.lib.darwinSystem {
+        system = "aarch64-darwin";
+        specialArgs = {
+          inherit inputs outputs hostname;
+          userConfig = users.${username};
+        };
+        modules = [
+          ./hosts/${hostname}
+          home-manager.darwinModules.home-manager
+        ];
+      };
+
+    mkHomeConfiguration = system: hostname: username:
+      home-manager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs {inherit system;};
+        extraSpecialArgs = {
+          inherit inputs outputs;
+          userConfig = users.${username};
+          nhModules = "${self}/modules/home-manager";
+        };
+        modules = [
+          ./home/${hostname}
+          nvf.homeManagerModules.default
+          stylix.homeManagerModules.stylix
+        ];
+      };
+  in {
+    nixosConfigurations = {
+      nixos = mkNixosConfiguration "nixos" "brady";
     };
-    devShells.${system}.default = pkgs.mkShell {
-      shell = pkgs.zsh;
-      shellHook = "exec zsh";
-      packages = [
-        pkgs.cargo
-        pkgs.pkg-config
-        pkgs.gtk4
-        pkgs.gtk4-layer-shell
-      ];
+
+    darwinConfigurations = {
+      macbook = mkDarwinConfiguration "macbook" "brady";
     };
+
+    homeConfigurations = {
+      "brady@nixos" = mkHomeConfiguration "x86_64-linux" "nixos" "brady";
+      "brady@macbook" = mkHomeConfiguration "aarch64-darwin" "macbook" "brady";
+    };
+
+    overlays = import ./overlays {inherit inputs;};
   };
 }
