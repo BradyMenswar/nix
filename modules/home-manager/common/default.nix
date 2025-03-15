@@ -8,6 +8,7 @@
   imports = [
     ../programs/neovim
     ../shells/zsh
+    ../misc/stylix
     ../terminals/kitty
     ../terminals/starship
   ];
@@ -33,13 +34,13 @@
   home.packages = with pkgs;
     [
       obsidian
-      inputs.zen-browser.packages."${system}".default
       inkscape
     ]
     ++ lib.optionals stdenv.isDarwin [
       raycast
     ]
     ++ lib.optionals (!stdenv.isDarwin) [
+      inputs.zen-browser.packages."${system}".default
       pciutils
       gowall
       mangohud

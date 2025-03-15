@@ -38,6 +38,11 @@
         fullName = "Brady Menswar";
         name = "brady";
       };
+      bradymenswar = {
+        email = "bradymenswar@gmail.com";
+        fullName = "Brady Menswar";
+        name = "bradymenswar";
+      };
     };
 
     mkNixosConfiguration = hostname: username:
@@ -83,12 +88,12 @@
     };
 
     darwinConfigurations = {
-      macbook = mkDarwinConfiguration "macbook" "brady";
+      Bradys-Laptop = mkDarwinConfiguration "Bradys-Laptop" "brady";
     };
 
     homeConfigurations = {
       "brady@nixos" = mkHomeConfiguration "x86_64-linux" "nixos" "brady";
-      "brady@macbook" = mkHomeConfiguration "aarch64-darwin" "macbook" "brady";
+      "bradymenswar" = mkHomeConfiguration "aarch64-darwin" "Bradys-Laptop" "bradymenswar";
     };
 
     overlays = import ./overlays {inherit inputs;};
