@@ -52,6 +52,10 @@
           css.enable = true;
           rust.enable = true;
           lua.enable = true;
+          python = {
+            enable = true;
+            format.type = "black-and-isort";
+          };
         };
 
         lsp = {

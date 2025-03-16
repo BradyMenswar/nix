@@ -11,6 +11,7 @@
     ../misc/stylix
     ../terminals/kitty
     ../terminals/starship
+    ../programs/node
   ];
 
   nixpkgs = {
