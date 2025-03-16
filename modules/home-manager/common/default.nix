@@ -12,6 +12,7 @@
     ../terminals/kitty
     ../terminals/starship
     ../programs/node
+    ../programs/python
   ];
 
   nixpkgs = {

@@ -1,8 +1,4 @@
-{
-  pkgs,
-  config,
-  ...
-}: {
+{pkgs, ...}: {
   programs.neovim = {
     enable = true;
     defaultEditor = true;
@@ -15,22 +11,6 @@
         theme = {
           enable = true;
           name = "base16";
-          base16-colors.base00 = "#${config.lib.stylix.colors.base00}";
-          base16-colors.base01 = "#${config.lib.stylix.colors.base01}";
-          base16-colors.base02 = "#${config.lib.stylix.colors.base02}";
-          base16-colors.base03 = "#${config.lib.stylix.colors.base03}";
-          base16-colors.base04 = "#${config.lib.stylix.colors.base04}";
-          base16-colors.base05 = "#${config.lib.stylix.colors.base05}";
-          base16-colors.base06 = "#${config.lib.stylix.colors.base06}";
-          base16-colors.base07 = "#${config.lib.stylix.colors.base07}";
-          base16-colors.base08 = "#${config.lib.stylix.colors.base08}";
-          base16-colors.base09 = "#${config.lib.stylix.colors.base09}";
-          base16-colors.base0A = "#${config.lib.stylix.colors.base0A}";
-          base16-colors.base0B = "#${config.lib.stylix.colors.base0B}";
-          base16-colors.base0C = "#${config.lib.stylix.colors.base0C}";
-          base16-colors.base0D = "#${config.lib.stylix.colors.base0D}";
-          base16-colors.base0E = "#${config.lib.stylix.colors.base0E}";
-          base16-colors.base0F = "#${config.lib.stylix.colors.base0F}";
         };
 
         statusline.lualine.enable = true;
@@ -54,6 +34,13 @@
           lua.enable = true;
           python = {
             enable = true;
+            lsp = {
+              enable = true;
+              package = pkgs.basedpyright.overrideAttrs (old: {
+                version = "1.28.1";
+              });
+            };
+            treesitter.enable = true;
             format.type = "black-and-isort";
           };
         };
