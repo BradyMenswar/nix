@@ -15,6 +15,7 @@
     settings = {
       exec-once = [
         "hyprpaper"
+        "waybar"
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
       ];
@@ -129,6 +130,11 @@
         layout = "dwindle";
         resize_on_border = true;
       };
+
+      windowrulev2 = [
+        "workspace 3, class:^(discord)$"
+        "monitor DP-6, class:^(discord)$"
+      ];
     };
   };
   services.hyprpaper = {
