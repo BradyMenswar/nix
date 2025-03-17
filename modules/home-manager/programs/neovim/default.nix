@@ -33,14 +33,7 @@
           rust.enable = true;
           lua.enable = true;
           python = {
-            enable = true;
-            lsp = {
-              enable = true;
-              package = pkgs.basedpyright.overrideAttrs (old: {
-                version = "1.28.1";
-              });
-            };
-            treesitter.enable = true;
+            format.enable = true;
             format.type = "black-and-isort";
           };
         };

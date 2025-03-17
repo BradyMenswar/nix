@@ -9,9 +9,9 @@
         passthrough = false;
         fixed-center = true;
         ipc = true;
-        margin-top = 3;
-        margin-left = 4;
-        margin-right = 4;
+        margin-top = 12;
+        margin-left = 12;
+        margin-right = 12;
 
         modules-left = [
           "hyprland/workspaces"
@@ -25,7 +25,6 @@
         ];
 
         modules-right = [
-          "hyprland/language"
           "tray"
           "bluetooth"
           "pulseaudio"
@@ -42,8 +41,8 @@
         };
 
         clock = {
-          format = "{:%b %d %H:%M}";
-          format-alt = " {:%H:%M   %Y, %B %d, %A}";
+          format = "{:%b %d %I:%M %p}";
+          format-alt = " {:%I:%M %p   %Y, %B %d, %A}";
           tooltip-format = "<tt><small>{calendar}</small></tt>";
           calendar = {
             mode = "year";
@@ -63,10 +62,6 @@
         cpu = {
           format = "󰍛 {usage}%";
           interval = 1;
-        };
-
-        "hyprland/language" = {
-          format = "{short}";
         };
 
         "hyprland/workspaces" = {
@@ -138,8 +133,6 @@
         font-size: 100%;
         font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
         padding: 0px;
-        margin-top: 1px;
-        margin-bottom: 1px;
       }
 
       window#waybar {
