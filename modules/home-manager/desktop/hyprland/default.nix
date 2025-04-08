@@ -5,7 +5,10 @@
   lib,
   ...
 }: {
-  programs.wofi.enable = true;
+  imports = [
+    ../../programs/wofi
+    ../../programs/waybar
+  ];
   wayland.windowManager.hyprland = {
     enable = true;
     package = inputs.hyprland.packages."${pkgs.system}".hyprland;

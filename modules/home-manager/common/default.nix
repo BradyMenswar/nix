@@ -1,5 +1,6 @@
 {
   inputs,
+  config,
   outputs,
   userConfig,
   pkgs,
@@ -23,6 +24,10 @@
     config = {
       allowUnfree = true;
     };
+  };
+
+  home.file."${config.xdg.dataHome}/fonts" = {
+    source = ../../../fonts;
   };
 
   home = {

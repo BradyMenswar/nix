@@ -3,7 +3,8 @@
     "${nhModules}/common"
     "${nhModules}/desktop/hyprland"
     "${nhModules}/misc/stylix"
-    "${nhModules}/programs/waybar"
+    "${nhModules}/programs/cemu"
+    "${nhModules}/programs/lutris"
   ];
 
   programs.home-manager.enable = true;
