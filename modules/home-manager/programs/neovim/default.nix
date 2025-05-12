@@ -28,11 +28,17 @@
           enableFormat = true;
           nix.enable = true;
           ts.enable = true;
+          html.enable = true;
           tailwind.enable = true;
           css.enable = true;
           rust.enable = true;
           lua.enable = true;
           python = {
+            enable = true;
+            lsp = {
+              package = pkgs.python312Packages.python-lsp-server;
+              server = "python-lsp-server";
+            };
             format.enable = true;
             format.type = "black-and-isort";
           };
