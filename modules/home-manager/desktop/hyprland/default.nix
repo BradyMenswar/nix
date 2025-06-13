@@ -63,6 +63,7 @@
         "$mod, Q, killactive"
         "$mod, E, exec, $fileManager"
         "$mod, F, togglefloating,"
+        "$mod SHIFT, F, fullscreen,"
         "$mod, 1, workspace, 1"
         "$mod, 2, workspace, 2"
         "$mod, 3, workspace, 3"
@@ -137,6 +138,8 @@
       windowrulev2 = [
         "workspace 3, class:^(discord)$"
         "monitor DP-6, class:^(discord)$"
+        "fullscreen, class:^(blender)$"
+        "fullscreen, class:^(Godot)$"
       ];
     };
   };

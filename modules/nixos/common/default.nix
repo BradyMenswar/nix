@@ -57,6 +57,10 @@
     };
   };
 
+  services.gvfs.enable = true;
+  services.udisks2.enable = true;
+  services.devmon.enable = true;
+
   programs.hyprland.enable = true;
 
   hardware.nvidia = {
@@ -119,6 +123,17 @@
   networking.nameservers = ["1.1.1.1" "8.8.8.8"];
 
   programs.wireshark.enable = true;
+
+  networking.firewall.allowedTCPPorts = [22];
+  services.openssh = {
+    enable = true;
+    ports = [22];
+    settings = {
+      AllowUsers = null; # Allows all users by default. Can be [ "user1" "user2" ]
+      UseDns = true;
+      PermitRootLogin = "prohibit-password"; # "yes", "without-password", "prohibit-password", "forced-commands-only", "no"
+    };
+  };
 
   system.stateVersion = "24.11";
 }

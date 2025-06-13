@@ -50,6 +50,13 @@
       inputs.zen-browser.packages."${system}".default
       pciutils
       gowall
+      blender
+      chromedriver
+      ffmpeg_6
+      protonvpn-gui
+      vlc
+      godot_4
+      material-maker
       mangohud
       protonup-qt
       wl-clipboard

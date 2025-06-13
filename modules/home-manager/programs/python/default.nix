@@ -7,6 +7,8 @@
         pandas
         pymupdf
         inkex
+        yt-dlp
+        selenium
       ]))
   ];
 }
